@@ -17,6 +17,6 @@ export function Nav() {
 const NavContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 45px;
+  height: 55px;
   background-color: blue;
 `;
