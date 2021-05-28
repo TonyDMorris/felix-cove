@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import BasketContext from "../../context/BasketContext";
-import { animated, useSpring, Spring } from "react-spring";
+import { animated, useSpring, Spring, useTransition } from "react-spring";
 
 import { Desktop } from "../Responsive";
 import { Item } from "./Item";
 export function SideBasket() {
   const { items, setItems } = useContext(BasketContext);
-  const springStyle = useSpring({
-    opacity: items.length > 0 ? 1 : 0,
-    width: items.length > 0 ? "30%" : "0px",
+  const transitions = useTransition(items, {
+    from: { x: items.length > 1 ? -500 : 0, opacity: 0 },
+    enter: { x: 0, opacity: 1 },
+    leave: { x: 500, opacity: 0 },
+    delay: 200,
   });
   return (
     <Desktop>
@@ -20,9 +22,11 @@ export function SideBasket() {
       >
         {(props) => (
           <Container style={props}>
-            {items.map((item) => {
-              return <Item {...item} />;
-            })}
+            {transitions((style, item) => (
+              <animated.div style={style}>
+                <Item {...item} />
+              </animated.div>
+            ))}
           </Container>
         )}
       </Spring>
