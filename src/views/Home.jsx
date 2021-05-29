@@ -8,28 +8,30 @@ export function Home() {
   const { items, setQuantity, addItem } = useContext(BasketContext);
   return (
     <HomeContainer>
-      <button
-        title="click to add item"
-        onClick={() => {
-          addItem({
-            id: items.length + 1,
-            name: "tony",
-            description: "this is desc",
-          });
-        }}
-      >
-        press to add item
-      </button>
-      <Header />
-      <SideBasket />
+      <TopRowContainer>
+        <button
+          title="click to add item"
+          onClick={() => {
+            addItem({
+              id: items.length + 1,
+              name: "tony",
+              description: "this is desc",
+            });
+          }}
+        >
+          press to add item
+        </button>
+        <Header />
+        <SideBasket />
+      </TopRowContainer>
     </HomeContainer>
   );
 }
-
-const HomeContainer = styled.div`
+const HomeContainer = styled.div``;
+const TopRowContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
-  height: 100%;
+  height: 700px;
   background-color: whitesmoke;
 `;

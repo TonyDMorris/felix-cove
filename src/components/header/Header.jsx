@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { Desktop, Mobile, Tablet } from "../Responsive";
 
@@ -7,22 +7,27 @@ export function Header() {
   return (
     <React.Fragment>
       <Desktop>
-        <Container width={"50%"} height={"500px"} overflow={"inherit"}>
-          <Video autoPlay loop muted width={"100%"}>
+        <Container width={"30%"}>
+          <Video autoPlay loop muted>
             <source src={video} type="video/mp4" />
           </Video>
+          <ContentContainer>
+            <h1>FEED THE DUCKS OR THERE WILL BE HELL TO PAY</h1>
+            <br />
+            <h1>I MEAN LOOK AT THESE CUTE MOTHERFUCKERS</h1>
+          </ContentContainer>
         </Container>
       </Desktop>
       <Mobile>
-        <Container width={"100%"} height={"100vh"} overflow={"hidden"}>
-          <Video autoPlay loop muted width={"auto"}>
+        <Container width={"100%"}>
+          <Video autoPlay loop muted>
             <source src={video} type="video/mp4" />
           </Video>
         </Container>
       </Mobile>
       <Tablet>
-        <Container width={"100%"} height={"100vh"} overflow={"hidden"}>
-          <Video autoPlay loop muted width={"auto"}>
+        <Container width={"100%"}>
+          <Video autoPlay loop muted>
             <source src={video} type="video/mp4" />
           </Video>
         </Container>
@@ -32,12 +37,40 @@ export function Header() {
 }
 
 const Container = styled.div`
+  position: relative;
   width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  overflow: ${(props) => props.overflow};
+  height: 100%;
+  overflow: hidden;
 `;
 
 const Video = styled.video`
-  width: ${(props) => props.width}
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* The following will size the video to fit the full container. Not necessary, just nice.*/
   height: 100%;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+`;
+
+const ContentContainer = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  > h1 {
+    background-color: whitesmoke;
+    opacity: 0.5;
+  }
 `;
