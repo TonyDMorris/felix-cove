@@ -3,19 +3,16 @@ import styled from "styled-components";
 import { Desktop, Mobile, Tablet } from "../Responsive";
 
 import video from "../../assets/ducks.mp4";
+import { QuoteCycler } from "./QuoteCycler";
 export function Header() {
   return (
     <React.Fragment>
       <Desktop>
-        <Container width={"30%"}>
+        <Container width={"20%"}>
           <Video autoPlay loop muted>
             <source src={video} type="video/mp4" />
           </Video>
-          <ContentContainer>
-            <h1>FEED THE DUCKS OR THERE WILL BE HELL TO PAY</h1>
-            <br />
-            <h1>I MEAN LOOK AT THESE CUTE MOTHERFUCKERS</h1>
-          </ContentContainer>
+          <QuoteCycler />
         </Container>
       </Desktop>
       <Mobile>
@@ -23,11 +20,7 @@ export function Header() {
           <Video autoPlay loop muted>
             <source src={video} type="video/mp4" />
           </Video>
-          <ContentContainer>
-            <h1>FEED THE DUCKS OR THERE WILL BE HELL TO PAY</h1>
-            <br />
-            <h1>I MEAN LOOK AT THESE CUTE MOTHERFUCKERS</h1>
-          </ContentContainer>
+          <QuoteCycler />
         </Container>
       </Mobile>
       <Tablet>
@@ -35,11 +28,7 @@ export function Header() {
           <Video autoPlay loop muted height={"auto"}>
             <source src={video} type="video/mp4" />
           </Video>
-          <ContentContainer>
-            <h1>FEED THE DUCKS OR THERE WILL BE HELL TO PAY</h1>
-            <br />
-            <h1>I MEAN LOOK AT THESE CUTE MOTHERFUCKERS</h1>
-          </ContentContainer>
+          <QuoteCycler />
         </Container>
       </Tablet>
     </React.Fragment>
@@ -69,21 +58,4 @@ const Video = styled.video`
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   z-index: 0;
-`;
-
-const ContentContainer = styled.div`
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 1em;
-  color: black;
-
-  background-color: whitesmoke;
-  opacity: 0.5;
 `;

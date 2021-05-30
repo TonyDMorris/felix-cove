@@ -5,11 +5,11 @@ export function Desktop({ children }) {
   return isDesktop ? children : null;
 }
 export function Tablet({ children }) {
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+  const isTablet = useMediaQuery({ minWidth: 426, maxWidth: 991 });
   return isTablet ? children : null;
 }
 export function Mobile({ children }) {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 425 });
   return isMobile ? children : null;
 }
 export function Default({ children }) {
