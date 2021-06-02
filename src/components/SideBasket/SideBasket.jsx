@@ -11,7 +11,7 @@ export function SideBasket() {
     from: { x: items.length > 1 ? -500 : 0, opacity: 0 },
     enter: { x: 0, opacity: 1 },
     leave: { x: 500, opacity: 0 },
-    delay: 200,
+    delay: 500,
   });
   return (
     <Desktop>
@@ -35,7 +35,9 @@ export function SideBasket() {
 }
 
 const Container = styled(animated.div)`
-  width: 25vw;
   background-color: red;
-  min-height: 500px;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: solid 2px black;
 `;

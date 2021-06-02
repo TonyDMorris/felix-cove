@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Home } from "./views/Home";
 import { Nav } from "./components/nav/Nav";
 import BasketContext from "./context/BasketContext";
+import "./app.css";
 function App() {
   const [items, setItems] = useState([]);
   function setQuantity(id, qty) {

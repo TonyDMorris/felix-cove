@@ -11,7 +11,7 @@ export function QuoteCycler() {
     },
     {
       quoteText: "And These Quotes Change How Good Is That?!?!",
-      quotee: "Times Magazine But About",
+      quotee: "Times Magazine But About Ducks",
       id: 2,
     },
   ]);
@@ -29,15 +29,11 @@ export function QuoteCycler() {
     return () => clearInterval(interval);
   });
 
-  const fadingTextPropsTransition = useTransition(
-    [quotes[quoteIndex]],
-
-    {
-      from: { opacity: 0 },
-      enter: { opacity: 1 },
-      leave: { opacity: 0 },
-    }
-  );
+  const fadingTextPropsTransition = useTransition([quotes[quoteIndex]], {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    config: { duration: 2000 },
+  });
 
   return fadingTextPropsTransition((props, item) => {
     return (
@@ -70,6 +66,7 @@ const Quote = styled.div`
   margin: 1.5em 10px;
   padding: 0.5em 10px;
   margin: 1.5em 10px;
+  max-width: 100%;
   &:before {
     color: black;
     content: open-quote;
