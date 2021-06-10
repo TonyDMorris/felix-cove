@@ -1,1 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@font-face {
+  font-family: "BreeSerifRegular";
+  src: local("BreeSerifRegular"),
+    url("./fonts/bree-serif/BreeSerif-Regular.ttf") format("truetype");
+  font-weight: bold;
+}
